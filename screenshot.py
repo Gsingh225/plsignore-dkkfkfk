@@ -19,3 +19,7 @@ def picture():
         )
         page = context.new_page()
         page.goto("https://www.reddit.com/login", timeout=0)
+        page.set_viewport_size(ViewportSize(width=1920, height=1080))
+        page.wait_for_load_state()
+        page.locator('[name="username"]').fill('IDEK')
+        browser.close()
