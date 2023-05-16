@@ -5,7 +5,7 @@ __all__=["picture"]
 
 def picture():
     W,H = 1080, 900
-    with sync_playwright as p:
+    with sync_playwright() as p:
         browser = p.chromium.launch(
             headless = False
         )
@@ -23,3 +23,4 @@ def picture():
         page.wait_for_load_state()
         page.locator('[name="username"]').fill('IDEK')
         browser.close()
+picture()
